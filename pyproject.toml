@@ -1,0 +1,32 @@
+[project]
+name = "mapcolor"
+version = "0.1.0"
+description = "Four color theorem solver"
+authors = [
+    { name = "Agon Hajdari", email = "agon.hajdari@student.uibk.ac.at" }
+]
+dependencies = [
+    "collision>=1.2.2",
+    "python-sat[aiger,approxmc,cryptosat,pblib]>=1.9.dev2",
+]
+readme = "README.md"
+license = "MIT"
+requires-python = ">= 3.10, < 3.14"
+
+[project.scripts]
+mapcolor = "mapcolor.__main__:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/mapcolor"]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.3",
+]
